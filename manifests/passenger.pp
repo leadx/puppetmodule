@@ -52,15 +52,6 @@ class puppet::passenger(
   $passenger_root,
 ){
 
-  class { 'apache':
-    default_mods        => false,
-    default_confd_files => false,
-    default_vhost       => false,
-    server_tokens       => 'Prod',
-    server_signature    => 'Off',
-    trace_enable        => 'Off',
-  }
-
   apache::mod { 'status': package_ensure => 'absent' }
 
   include puppet::params
